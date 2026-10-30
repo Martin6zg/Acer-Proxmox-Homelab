@@ -1,0 +1,19 @@
+# Example: /etc/network/interfaces for Proxmox VE
+# Copy to /etc/network/interfaces and replace placeholders
+# DO NOT commit real IPs
+
+auto lo
+iface lo inet loopback
+
+auto enp2s0
+iface enp2s0 inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+    address [SERVER-IP]/24
+    gateway [ROUTER-IP]
+    bridge-ports enp2s0
+    bridge-stp off
+    bridge-fd 0
+    # DNS configured via Proxmox UI: Node > System > DNS
+    # Recommended: [ROUTER-IP], 1.1.1.1
