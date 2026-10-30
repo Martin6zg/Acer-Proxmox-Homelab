@@ -1,0 +1,10 @@
+# Example: /etc/systemd/logind.conf for headless laptop operation
+# Uncomment and set these three lines, then reboot
+
+[Login]
+HandleLidSwitch=ignore
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+
+# Verify with:
+# grep -i HandleLidSwitch /etc/systemd/logind.conf
